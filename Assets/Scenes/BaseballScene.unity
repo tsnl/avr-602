@@ -1161,7 +1161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2952324934531401170, guid: 66c8e9a6e6bdf454f8701caa97145dc3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2952324934531401170, guid: 66c8e9a6e6bdf454f8701caa97145dc3, type: 3}
       propertyPath: shotDelaySec
