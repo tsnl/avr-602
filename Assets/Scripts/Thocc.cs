@@ -27,6 +27,7 @@ public class Thocc : MonoBehaviour
         if (collision.relativeVelocity.magnitude > 2)
         {
             audioSource.Play();
+            Debug.Log("Thocc");
         }
     }
 }
