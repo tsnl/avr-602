@@ -1128,7 +1128,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2062380344}
         m_TargetAssemblyTypeName: Pitcher, Assembly-CSharp
-        m_MethodName: set_shotEnabled
+        m_MethodName: set_ShotEnabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1136,7 +1136,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
@@ -3532,11 +3532,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f6bf3d943ac7945842268c9ef1dca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 756192407}
-  m_Colliders:
-  - {fileID: 1783218302}
+  m_InteractionManager: {fileID: 0}
+  m_Colliders: []
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 2147483648
   m_DistanceCalculationMode: 1
   m_SelectMode: 1
   m_FocusMode: 1
@@ -3595,7 +3594,7 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_TeleportationProvider: {fileID: 0}
   m_MatchOrientation: 0
-  m_MatchDirectionalInput: 0
+  m_MatchDirectionalInput: 1
   m_TeleportTrigger: 0
   m_FilterSelectionByHitNormal: 0
   m_UpNormalToleranceDegrees: 30

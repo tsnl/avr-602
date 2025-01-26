@@ -18,12 +18,15 @@ public class Pitcher : MonoBehaviour
             return ball;
         }
     }
-    public bool shotEnabled { get; set; }
+    public bool shotEnabled;
     public GameObject ballSpawnAnchor;
     public GameObject ballTemplate;
     public float shotDelaySec;
     public float shotForce;
     public float shotPitch;
+
+
+    public bool ShotEnabled { get => shotEnabled; set => shotEnabled = value; }
 
     private Shot currentShot = null;
     private GameObject lastBall = null;
@@ -37,7 +40,6 @@ public class Pitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(shotEnabled);
         if (!shotEnabled)
         {
             return;
