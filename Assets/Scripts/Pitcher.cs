@@ -13,12 +13,12 @@ public class Pitcher : MonoBehaviour
         public GameObject SpawnBall(GameObject template, Vector3 position, Quaternion rotation, Vector3 forward, Vector3 up, float force, float pitch)
         {
             var ball = Instantiate(template, position, rotation);
-            Destroy(ball, 5.0);
+            Destroy(ball, 5.0f);
             ball.GetComponent<Rigidbody>().AddForce((forward + up * pitch).normalized * force, ForceMode.Force);
             return ball;
         }
     }
-    public bool enabled;
+    public bool shotEnabled { get; set; }
     public GameObject ballSpawnAnchor;
     public GameObject ballTemplate;
     public float shotDelaySec;
@@ -31,13 +31,14 @@ public class Pitcher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enabled = false;
+        shotEnabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!enabled)
+        Debug.Log(shotEnabled);
+        if (!shotEnabled)
         {
             return;
         }
