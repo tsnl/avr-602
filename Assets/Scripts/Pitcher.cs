@@ -10,17 +10,20 @@ public class Pitcher : MonoBehaviour
     {
         public float delay = 1.0f;
 
-        public GameObject SpawnBall(GameObject template, Vector3 position, Quaternion rotation, Vector3 forward)
+        public GameObject SpawnBall(GameObject template, Vector3 position, Quaternion rotation, Vector3 forward, Vector3 up, float force, float pitch)
         {
             var ball = Instantiate(template, position, rotation);
-            ball.GetComponent<Rigidbody>().AddForce(forward * 1e3f, ForceMode.Force);
+            Destroy(ball, 5.0);
+            ball.GetComponent<Rigidbody>().AddForce((forward + up * pitch).normalized * force, ForceMode.Force);
             return ball;
         }
     }
-
+    public bool enabled;
     public GameObject ballSpawnAnchor;
     public GameObject ballTemplate;
     public float shotDelaySec;
+    public float shotForce;
+    public float shotPitch;
 
     private Shot currentShot = null;
     private GameObject lastBall = null;
@@ -28,11 +31,16 @@ public class Pitcher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!enabled)
+        {
+            return;
+        }
         if (currentShot == null)
         {
             currentShot = new Shot() { delay = shotDelaySec };
@@ -44,9 +52,9 @@ public class Pitcher : MonoBehaviour
             {
                 if (lastBall != null)
                 {
-                    Destroy(lastBall);
+                    // Destroy(lastBall);
                 }
-                lastBall = currentShot.SpawnBall(ballTemplate, ballSpawnAnchor.transform.position, ballSpawnAnchor.transform.rotation, ballSpawnAnchor.transform.forward);
+                lastBall = currentShot.SpawnBall(ballTemplate, ballSpawnAnchor.transform.position, ballSpawnAnchor.transform.rotation, ballSpawnAnchor.transform.forward, ballSpawnAnchor.transform.up, shotForce, shotPitch);
                 currentShot = null;
             }
         }

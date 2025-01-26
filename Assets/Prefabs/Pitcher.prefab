@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 80c37b7b462f97d4d97ed5e1961be1ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,9 +124,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c72e6170afe4dfc90390f9589f4c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 0
   ballSpawnAnchor: {fileID: 2095111400061313835}
   ballTemplate: {fileID: 2784935124490647420, guid: b5ea2203bf3ac48178dc1c3518baf236, type: 3}
-  shotDelaySec: 0
+  shotDelaySec: 2
+  shotForce: 500
+  shotPitch: 1
 --- !u!114 &3489769744269072039
 MonoBehaviour:
   m_ObjectHideFlags: 0
