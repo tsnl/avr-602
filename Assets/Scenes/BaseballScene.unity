@@ -3203,7 +3203,7 @@ GameObject:
   - component: {fileID: 1617051385}
   - component: {fileID: 1617051386}
   m_Layer: 0
-  m_Name: Target
+  m_Name: BaseballTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
