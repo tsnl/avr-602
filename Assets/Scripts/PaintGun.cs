@@ -19,8 +19,20 @@ public class PaintGun : MonoBehaviour {
 
     public void Shoot()
     {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + new Vector3(0f, 0.2f, 0.15f), transform.forward, out hit, Mathf.Infinity))
+        {
+            Destroy(hit.collider.gameObject);
+        }
+
         GameObject newBall = Instantiate(paintball);
         newBall.transform.position = spawnPoint.position;
         newBall.transform.rotation = spawnPoint.rotation;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(transform.position + new Vector3(0f, 0.2f, 0.15f), transform.forward);
     }
 }
