@@ -52,5 +52,6 @@
         "Temp/": true
     },
     "dotnet.defaultSolution": "avr-602.sln",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "dotnet.preferCSharpExtension": true
 }

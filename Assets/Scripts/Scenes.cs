@@ -13,7 +13,7 @@ public enum ArcadeScene
     Shooting,
 }
 
-public class ArcadeSceneManager : MonoBehaviour
+public class Scenes : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -46,5 +46,10 @@ public class ArcadeSceneManager : MonoBehaviour
                 _ => throw new System.NotImplementedException(),
             }
         );
+    }
+
+    public void DebugLog(string s)
+    {
+        Debug.Log(s);
     }
 }

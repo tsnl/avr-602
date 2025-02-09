@@ -795,12 +795,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654313455}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.67, z: 8}
+  m_LocalScale: {x: 3, y: 1, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1457224667}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &654313457
 MonoBehaviour:
@@ -814,7 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b8d1b954517924c8968ef9ad7709bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingTarget: {fileID: 0}
+  target: {fileID: 1080645998}
 --- !u!65 &654313458
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1414,6 +1414,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -90, z: 0}
+--- !u!1 &1080645998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9074899252685466684, guid: 6a9808d28dd5b9349bfa3fa7fb871b1f, type: 3}
+  m_PrefabInstance: {fileID: 1806321774702009657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1140384059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,8 +2118,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.67, z: 8}
   m_LocalScale: {x: 3, y: 1, z: 0.8}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 654313456}
+  m_Children: []
   m_Father: {fileID: 1334850223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1457224668
@@ -3967,3 +3971,4 @@ SceneRoots:
   - {fileID: 1782109524}
   - {fileID: 1140384060}
   - {fileID: 1879534228}
+  - {fileID: 654313456}
