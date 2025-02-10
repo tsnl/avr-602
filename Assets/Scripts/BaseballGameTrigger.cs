@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameTrigger : MonoBehaviour
+public class BaseballGameTrigger : MonoBehaviour
 {
 
     //public Animator TargetAnimation;
@@ -27,10 +27,10 @@ public class GameTrigger : MonoBehaviour
     {
         if (anim != null)
         {
-            Debug.Log("Playing animation: Base Layer.ShootingTarget1");
+            Debug.Log("Playing animation: Base Layer.Target1");
 
             // Ensure animation is playing:
-            anim.Play("Base Layer.ShootingTarget1", 0, 0);
+            anim.Play("Base Layer.Target1", 0, 0);
 
             // Set playback speed to 1.0
             anim.SetFloat("PlaybackSpeed", 1.0f);
