@@ -4,6 +4,8 @@ public class PaintGun : MonoBehaviour {
 
     public Transform spawnPoint;
     public GameObject paintball;
+    public GameObject icecube;
+    public GameObject splash;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +24,27 @@ public class PaintGun : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(transform.position + new Vector3(0f, 0.2f, 0.15f), transform.forward, out hit, Mathf.Infinity))
         {
-            Destroy(hit.collider.gameObject);
+            // Display paint splash
+            GameObject newSplash = Instantiate(splash);
+            newSplash.transform.position = hit.transform.position;
+            newSplash.transform.rotation = hit.transform.rotation;
+            Destroy(splash, 0.6f);
         }
 
         GameObject newBall = Instantiate(paintball);
+        newBall.transform.position = spawnPoint.position;
+        newBall.transform.rotation = spawnPoint.rotation;
+    }
+    public void AltShoot()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + new Vector3(0f, 0.2f, 0.15f), transform.forward, out hit, Mathf.Infinity))
+        {
+            // Distroy target
+            Destroy(hit.collider.gameObject);
+        }
+
+        GameObject newBall = Instantiate(icecube);
         newBall.transform.position = spawnPoint.position;
         newBall.transform.rotation = spawnPoint.rotation;
     }

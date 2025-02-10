@@ -7,6 +7,7 @@ public class PaintBall : MonoBehaviour {
     void Start()
     {
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
+        Destroy(gameObject, 3f);
     }
 
     //private void OnEnable()
