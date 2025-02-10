@@ -30,14 +30,13 @@ public class PaintGun : MonoBehaviour
             // Display paint splash
             GameObject newSplash = Instantiate(splash);
             newSplash.transform.position = hit.transform.position;
-            //newSplash.transform.rotation = hit.transform.rotation;
-            Destroy(newSplash, 0.6f);
+            newSplash.transform.rotation = hit.transform.rotation;
+            Destroy(splash, 0.6f);
         }
 
         GameObject newBall = Instantiate(paintball);
         newBall.transform.position = spawnPoint.position;
         newBall.transform.rotation = spawnPoint.rotation;
-
     }
     public void AltShoot()
     {
