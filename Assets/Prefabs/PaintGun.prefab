@@ -285,6 +285,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 3048347939291821687}
   paintball: {fileID: 2595718343907545867, guid: bbd79d5eb13caa144b45e7a5bedd72e5, type: 3}
   icecube: {fileID: 2595718343907545867, guid: 2261dd06c0932114d9a69d239bba8447, type: 3}
+  splash: {fileID: 836865474454970083, guid: c582d55795cb73a429368974ca086360, type: 3}
 --- !u!120 &8441520516237950984
 LineRenderer:
   serializedVersion: 2

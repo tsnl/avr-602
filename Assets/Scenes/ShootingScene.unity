@@ -275,6 +275,17 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!114 &225106510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5954618400708596039, guid: 7d95dcff8d0154148b993f882a6d903e, type: 3}
+  m_PrefabInstance: {fileID: 469155562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221d1055ba8bb7d4d95be53f644be64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &265457779 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
@@ -1388,6 +1399,17 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 780201921469275857, guid: 3549fdaf258e11846b85a316c16c699c, type: 3}
   m_PrefabInstance: {fileID: 838274354}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &959965321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5954618400708596039, guid: 7d95dcff8d0154148b993f882a6d903e, type: 3}
+  m_PrefabInstance: {fileID: 291793745}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221d1055ba8bb7d4d95be53f644be64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &983835649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,7 +1446,41 @@ MonoBehaviour:
     actionEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5954618400708596039, guid: 7d95dcff8d0154148b993f882a6d903e, type: 3}
+        - m_Target: {fileID: 1627851863}
+          m_TargetAssemblyTypeName: PaintGun, Assembly-CSharp
+          m_MethodName: AltShoot
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: Alt_Shoot
+    actionReference: {fileID: 3279104534241225763, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    actionEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 225106510}
+          m_TargetAssemblyTypeName: PaintGun, Assembly-CSharp
+          m_MethodName: AltShoot
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: Alt_Shoot
+    actionReference: {fileID: 3279104534241225763, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    actionEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 959965321}
           m_TargetAssemblyTypeName: PaintGun, Assembly-CSharp
           m_MethodName: AltShoot
           m_Mode: 1
@@ -2682,6 +2738,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612464423}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1627851863 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5954618400708596039, guid: 7d95dcff8d0154148b993f882a6d903e, type: 3}
+  m_PrefabInstance: {fileID: 728577978021680172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221d1055ba8bb7d4d95be53f644be64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1695136233
 GameObject:
   m_ObjectHideFlags: 0

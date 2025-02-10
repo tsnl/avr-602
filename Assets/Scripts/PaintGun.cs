@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class PaintGun : MonoBehaviour {
+public class PaintGun : MonoBehaviour
+{
 
     public Transform spawnPoint;
     public GameObject paintball;
@@ -21,6 +22,8 @@ public class PaintGun : MonoBehaviour {
 
     public void Shoot()
     {
+        Debug.Log("RegularShoot");
+
         RaycastHit hit;
         if (Physics.Raycast(transform.position + new Vector3(0f, 0.2f, 0.15f), transform.forward, out hit, Mathf.Infinity))
         {
@@ -37,6 +40,8 @@ public class PaintGun : MonoBehaviour {
     }
     public void AltShoot()
     {
+        Debug.Log("AltShoot");
+
         RaycastHit hit;
         if (Physics.Raycast(transform.position + new Vector3(0f, 0.2f, 0.15f), transform.forward, out hit, Mathf.Infinity))
         {
@@ -47,6 +52,11 @@ public class PaintGun : MonoBehaviour {
         GameObject newBall = Instantiate(icecube);
         newBall.transform.position = spawnPoint.position;
         newBall.transform.rotation = spawnPoint.rotation;
+    }
+
+    public void DebugPrimaryButton()
+    {
+        Debug.Log("Primary button pressed");
     }
 
     private void OnDrawGizmos()

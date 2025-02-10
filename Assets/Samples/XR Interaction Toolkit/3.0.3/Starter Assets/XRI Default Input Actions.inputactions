@@ -2853,7 +2853,7 @@
                 {
                     "name": "Modifier",
                     "id": "824f9f5b-65cc-46e0-8cb8-8d2852c9f26a",
-                    "path": "<QuestTouchPlusController>/triggerPressed",
+                    "path": "<XRController>/{TriggerButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
