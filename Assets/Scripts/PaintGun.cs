@@ -46,7 +46,7 @@ public class PaintGun : MonoBehaviour
         if (Physics.Raycast(transform.position + new Vector3(0f, 0.2f, 0.15f), transform.forward, out hit, Mathf.Infinity))
         {
             // Distroy target
-            Destroy(hit.collider.gameObject);
+            DestroyImmediate(hit.collider.gameObject, true);
         }
 
         GameObject newBall = Instantiate(icecube);
