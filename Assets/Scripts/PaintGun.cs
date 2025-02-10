@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PaintGun : MonoBehaviour
@@ -8,10 +9,12 @@ public class PaintGun : MonoBehaviour
     public GameObject icecube;
     public GameObject splash;
 
+    private bool altShoot;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        altShoot = false;
     }
 
     // Update is called once per frame
@@ -22,36 +25,48 @@ public class PaintGun : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("RegularShoot");
 
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position + new Vector3(0f, 0.2f, 0.15f), transform.forward, out hit, Mathf.Infinity))
+        if (!altShoot) // regular shoot
         {
-            // Display paint splash
-            GameObject newSplash = Instantiate(splash);
-            newSplash.transform.position = hit.transform.position;
-            newSplash.transform.rotation = hit.transform.rotation;
-            Destroy(splash, 0.6f);
+            Debug.Log("RegularShoot");
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position + new Vector3(0f, 0.2f, 0.15f), transform.forward, out hit, Mathf.Infinity))
+            {
+                // Display paint splash
+                GameObject newSplash = Instantiate(splash);
+                newSplash.transform.position = hit.transform.position;
+                //newSplash.transform.rotation = hit.transform.rotation;
+                Destroy(newSplash, 0.6f);
+            }
+
+            GameObject newBall = Instantiate(paintball);
+            newBall.transform.position = spawnPoint.position;
+            newBall.transform.rotation = spawnPoint.rotation;
+        }
+        else // AltShoot
+        {
+            Debug.Log("AltShoot");
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position + new Vector3(0f, 0.2f, 0.15f), transform.forward, out hit, Mathf.Infinity))
+            {
+                // Distroy target
+                DestroyImmediate(hit.collider.gameObject, true);
+            }
+
+            GameObject newBall = Instantiate(icecube);
+            newBall.transform.position = spawnPoint.position;
+            newBall.transform.rotation = spawnPoint.rotation;
+
         }
 
-        GameObject newBall = Instantiate(paintball);
-        newBall.transform.position = spawnPoint.position;
-        newBall.transform.rotation = spawnPoint.rotation;
+
     }
-    public void AltShoot()
+
+    public void PrimaryTriggerPressed()
     {
-        Debug.Log("AltShoot");
-
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position + new Vector3(0f, 0.2f, 0.15f), transform.forward, out hit, Mathf.Infinity))
-        {
-            // Distroy target
-            DestroyImmediate(hit.collider.gameObject, true);
-        }
-
-        GameObject newBall = Instantiate(icecube);
-        newBall.transform.position = spawnPoint.position;
-        newBall.transform.rotation = spawnPoint.rotation;
+        altShoot = true;
     }
 
     public void DebugPrimaryButton()
