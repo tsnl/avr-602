@@ -9,16 +9,4 @@ public class PaintBall : MonoBehaviour {
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
         Destroy(gameObject, 3f);
     }
-
-    //private void OnEnable()
-    //{
-    //    transform.position = spawnPoint.position;
-    //    transform.rotation = spawnPoint.rotation;
-    //}
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

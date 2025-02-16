@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class HandAnimator : MonoBehaviour
 {
-    [SerializeField] private InputActionProperty triggerAction; //activate
+    [SerializeField] private InputActionProperty triggerAction; // activate
     [SerializeField] private InputActionProperty gripAction; // select
 
     Animator animator;
