@@ -22,20 +22,14 @@ public class PaintGun : MonoBehaviour
         altShoot = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void Shoot()
     {
-
         if (!altShoot) // regular shoot
         {
             Debug.Log("RegularShoot");
 
             RaycastHit hit;
-            if (Physics.Raycast(transform.position + new Vector3(0f, 0.2f, 0.15f), transform.forward, out hit, Mathf.Infinity))
+            if (Physics.Raycast(spawnPoint.position, transform.forward, out hit, Mathf.Infinity))
             {
                 // Display paint splash
                 PaintSplash newSplash = Instantiate(splash).GetComponent<PaintSplash>();
@@ -46,7 +40,7 @@ public class PaintGun : MonoBehaviour
                 // Play splash sound
                 if (audioClips.Count > 0 && audioClips[0] != null) AudioSource.PlayClipAtPoint(audioClips[0], hit.point);
 
-                // 
+                // Score increment when target hit
                 if (hit.collider.gameObject.name.Contains("target"))
                 {
                     score++;
@@ -63,7 +57,7 @@ public class PaintGun : MonoBehaviour
             Debug.Log("AltShoot");
 
             RaycastHit hit;
-            if (Physics.Raycast(transform.position + new Vector3(0f, 0.2f, 0.15f), transform.forward, out hit, Mathf.Infinity))
+            if (Physics.Raycast(spawnPoint.position, transform.forward, out hit, Mathf.Infinity))
             {
                 // Distroy target
                 if (hit.collider.gameObject.tag == "Destroyable")
@@ -80,8 +74,6 @@ public class PaintGun : MonoBehaviour
             newBall.transform.rotation = spawnPoint.rotation;
 
         }
-
-
     }
 
     public void PrimaryTriggerPressed()

@@ -19,7 +19,7 @@ public class BaseballGameTrigger : MonoBehaviour
         if (anim != null)
         {
             AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-            Debug.Log("Current animation state: " + anim.GetCurrentAnimatorClipInfo(0)[0].clip.name);
+            //Debug.Log("Current animation state: " + anim.GetCurrentAnimatorClipInfo(0)[0].clip.name);
         }
     }
 
