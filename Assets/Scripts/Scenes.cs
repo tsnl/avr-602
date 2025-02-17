@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public enum ArcadeScene
 {
     Interior,
+    InteriorV2,
     Exterior,
     Baseball,
     Shooting,
@@ -40,6 +41,7 @@ public class Scenes : MonoBehaviour
             scene switch
             {
                 ArcadeScene.Interior => "ArcadeSceneInterior",
+                ArcadeScene.InteriorV2 => "ArcadeSceneInteriorV2",
                 ArcadeScene.Exterior => "ArcadeSceneExterior",
                 ArcadeScene.Baseball => "BaseballScene",
                 ArcadeScene.Shooting => "ShootingScene",
