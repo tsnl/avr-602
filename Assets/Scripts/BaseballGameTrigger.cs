@@ -27,7 +27,7 @@ public class BaseballGameTrigger : MonoBehaviour
     {
         if (anim != null)
         {
-            Debug.Log("Playing animation: Base Layer.Target1");
+            //Debug.Log("Playing animation: Base Layer.Target1");
 
             // Ensure animation is playing:
             anim.Play("Base Layer.Target1", 0, 0);

@@ -40,7 +40,7 @@ public class Pitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!shotEnabled)
+        /*if (!shotEnabled)
         {
             return;
         }
@@ -60,6 +60,18 @@ public class Pitcher : MonoBehaviour
                 lastBall = currentShot.SpawnBall(ballTemplate, ballSpawnAnchor.transform.position, ballSpawnAnchor.transform.rotation, ballSpawnAnchor.transform.forward, ballSpawnAnchor.transform.up, shotForce, shotPitch);
                 currentShot = null;
             }
+        }*/
+    }
+
+    /// <summary>
+    /// This function is called by signal receiver of Pitcher when the throw animation emits a signal in Timeline.
+    /// </summary>
+    public void Throw()
+    {
+        if (shotEnabled)
+        {
+            Shot newShot = new();
+            newShot.SpawnBall(ballTemplate, ballSpawnAnchor.transform.position, ballSpawnAnchor.transform.rotation, ballSpawnAnchor.transform.forward, ballSpawnAnchor.transform.up, shotForce, shotPitch);
         }
     }
 }
