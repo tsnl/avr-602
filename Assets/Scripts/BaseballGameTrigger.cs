@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class BaseballGameTrigger : MonoBehaviour
 {
@@ -25,9 +26,10 @@ public class BaseballGameTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (anim != null)
+        if (anim != null && other.gameObject.CompareTag("Player"))
         {
-            //Debug.Log("Playing animation: Base Layer.Target1");
+            //Console.Log("Baseball Game Trigger triggered with: " + other.gameObject.name);
+            //Debug.Log(other.name);
 
             // Ensure animation is playing:
             anim.Play("Base Layer.Target1", 0, 0);

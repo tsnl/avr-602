@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 
 public class Pitcher : MonoBehaviour
 {
@@ -18,13 +19,15 @@ public class Pitcher : MonoBehaviour
             return ball;
         }
     }
+
+
     public bool shotEnabled;
     public GameObject ballSpawnAnchor;
     public GameObject ballTemplate;
     public float shotDelaySec;
     public float shotForce;
     public float shotPitch;
-
+    [SerializeField] private PlayableDirector playableDirector;
 
     public bool ShotEnabled { get => shotEnabled; set => shotEnabled = value; }
 
@@ -35,6 +38,9 @@ public class Pitcher : MonoBehaviour
     void Start()
     {
         shotEnabled = false;
+
+        // Play on Awake is enabled for animation to start, but pause soon after.
+        Invoke(nameof(PauseAnimation), 0.1f);  
     }
 
     // Update is called once per frame
@@ -73,5 +79,21 @@ public class Pitcher : MonoBehaviour
             Shot newShot = new();
             newShot.SpawnBall(ballTemplate, ballSpawnAnchor.transform.position, ballSpawnAnchor.transform.rotation, ballSpawnAnchor.transform.forward, ballSpawnAnchor.transform.up, shotForce, shotPitch);
         }
+    }
+
+    /// <summary>
+    /// Play pitcher animation (called by Bat XR Grab Interactable)
+    /// </summary>
+    public void PlayAnimation()
+    {
+        playableDirector.Play();
+    }
+
+    /// <summary>
+    /// Pause pitcher animation
+    /// </summary>
+    public void PauseAnimation()
+    {
+        playableDirector.Pause();
     }
 }

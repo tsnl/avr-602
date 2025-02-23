@@ -5,25 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 55daccc09a3b69647bbab145b54a3ab3
   - enabled: 1
     path: Assets/Scenes/BaseballScene.unity
     guid: 78eccf97145c14108915dd602e8a5395
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ShootingScene.unity
     guid: 2d7ec61e88475df43a6bd83deb4aff57
   - enabled: 0
     path: Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/DemoScene.unity
     guid: 319dafa5c80f29f428dc1e0d03f04177
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ArcadeSceneInterior.unity
     guid: 0060a7223150a452ba1697f6d39f7c3e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ArcadeSceneExterior.unity
     guid: 673a32f5851c94971b676038372387f5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ArcadeSceneInteriorV2.unity
     guid: 8ea92802adf805a41b8126639a3d0abf
   m_configObjects:
