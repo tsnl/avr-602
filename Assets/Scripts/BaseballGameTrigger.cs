@@ -26,6 +26,7 @@ public class BaseballGameTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        // Play target animations when player enters game trigger
         if (anim != null && other.gameObject.CompareTag("Player"))
         {
             //Console.Log("Baseball Game Trigger triggered with: " + other.gameObject.name);
