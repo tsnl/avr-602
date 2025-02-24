@@ -6,6 +6,8 @@ using UnityEngine.ProBuilder;
 
 public class PaintGun : MonoBehaviour
 {
+    public ProgressionManager progressionManager;
+
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject paintball;
     [SerializeField] private GameObject icecube;
@@ -44,6 +46,8 @@ public class PaintGun : MonoBehaviour
                 if (hit.collider.gameObject.name.Contains("target"))
                 {
                     score++;
+                    progressionManager.RegisterShootingScore(score);
+
                     scoreBoard.Set(score.ToString());
                 }
             }
