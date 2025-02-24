@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 9ce5252f4aeab93438d98a617f37ad2b, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -409,11 +409,72 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcadeInteriorV2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9ac35196c8e3bb5488cd54f85bc4f6f9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ac35196c8e3bb5488cd54f85bc4f6f9, type: 3}
+--- !u!1001 &1494163158
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6197516815091720658, guid: f92fc9e1598b73940a886be2de13c0ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197516815091720658, guid: f92fc9e1598b73940a886be2de13c0ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197516815091720658, guid: f92fc9e1598b73940a886be2de13c0ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197516815091720658, guid: f92fc9e1598b73940a886be2de13c0ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197516815091720658, guid: f92fc9e1598b73940a886be2de13c0ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197516815091720658, guid: f92fc9e1598b73940a886be2de13c0ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197516815091720658, guid: f92fc9e1598b73940a886be2de13c0ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197516815091720658, guid: f92fc9e1598b73940a886be2de13c0ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197516815091720658, guid: f92fc9e1598b73940a886be2de13c0ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197516815091720658, guid: f92fc9e1598b73940a886be2de13c0ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439876106586376167, guid: f92fc9e1598b73940a886be2de13c0ca, type: 3}
+      propertyPath: m_Name
+      value: chill-pop-motivational-upbeat-250525
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f92fc9e1598b73940a886be2de13c0ca, type: 3}
 --- !u!1001 &1654091813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -620,7 +681,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!64 &2142091891
 MeshCollider:
@@ -802,3 +863,4 @@ SceneRoots:
   - {fileID: 1769806322}
   - {fileID: 770575288}
   - {fileID: 29350390}
+  - {fileID: 1494163158}
