@@ -1,13 +1,7 @@
-using System;
-using System.Collections;
-using System.Text.Json;
-using System.Collections.Generic;
 using Newtonsoft.Json;
-
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using Palmmedia.ReportGenerator.Core.Common;
+using System;
 using System.IO;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class DifficultyData
@@ -18,6 +12,8 @@ public class DifficultyData
 
 public class SaveData
 {
+  public int LatestBaseballScore { get; set; }
+  public int LatestShootingScore { get; set; }
   public int BaseballHighScore { get; set; }
   public int ShootingHighScore { get; set; }
   public bool BaseballScoreThresholdReached { get; set; }
@@ -29,6 +25,9 @@ public class ProgressionManager : MonoBehaviour
 {
   private DifficultyData difficulty = new DifficultyData();
   private SaveData saveData;
+  private bool baseballHighScoreChangedSinceLoad = false;
+  private bool shootingHighScoreChangedSinceLoad = false;
+
 
   public UnityEvent BaseballScoreThresholdReached;
   public UnityEvent BaseballHighScoreChanged;
@@ -39,40 +38,22 @@ public class ProgressionManager : MonoBehaviour
   void Start()
   {
     Load();
+    Save();
+    PublishEvents();
   }
 
   public void RegisterBaseballScore(int score)
   {
-    if (score >= difficulty.BaseballScoreThreshold)
-    {
-      BaseballScoreThresholdReached?.Invoke();
-      saveData.BaseballScoreThresholdReached = true;
-    }
-
-    if (score > saveData.BaseballHighScore)
-    {
-      saveData.BaseballHighScore = score;
-      BaseballHighScoreChanged?.Invoke();
-    }
-
+    saveData.LatestBaseballScore = score;
     Save();
+    PublishEvents();
   }
 
   public void RegisterShootingScore(int score)
   {
-    if (score >= difficulty.ShootingScoreThreshold)
-    {
-      ShootingScoreThresholdReached?.Invoke();
-      saveData.ShootingScoreThresholdReached = true;
-    }
-
-    if (score > saveData.ShootingHighScore)
-    {
-      saveData.ShootingHighScore = score;
-      ShootingHighScoreChanged?.Invoke();
-    }
-
+    saveData.LatestShootingScore = score;
     Save();
+    PublishEvents();
   }
 
   public void Reset()
@@ -81,13 +62,51 @@ public class ProgressionManager : MonoBehaviour
     Save();
   }
 
+  private void PublishEvents()
+  {
+    PublishBaseballEvents();
+    PublishShootingEvents();
+  }
+
+  private void PublishBaseballEvents()
+  {
+    if (saveData.LatestBaseballScore >= difficulty.BaseballScoreThreshold)
+    {
+      BaseballScoreThresholdReached?.Invoke();
+      saveData.BaseballScoreThresholdReached = true;
+    }
+
+    if (saveData.LatestBaseballScore > saveData.BaseballHighScore && !baseballHighScoreChangedSinceLoad)
+    {
+      baseballHighScoreChangedSinceLoad = true;
+      saveData.BaseballHighScore = saveData.LatestBaseballScore;
+      BaseballHighScoreChanged?.Invoke();
+    }
+  }
+
+  private void PublishShootingEvents()
+  {
+    if (saveData.LatestShootingScore >= difficulty.ShootingScoreThreshold)
+    {
+      ShootingScoreThresholdReached?.Invoke();
+      saveData.ShootingScoreThresholdReached = true;
+    }
+
+    if (saveData.LatestShootingScore > saveData.ShootingHighScore && !shootingHighScoreChangedSinceLoad)
+    {
+      shootingHighScoreChangedSinceLoad = true;
+      saveData.ShootingHighScore = saveData.LatestShootingScore;
+      ShootingHighScoreChanged?.Invoke();
+    }
+  }
+
   private void Save()
   {
     var filepath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/avr602/ArcadeSaveData.json";
     Directory.CreateDirectory(Path.GetDirectoryName(filepath));
     var text = JsonConvert.SerializeObject(this.saveData);
-    File.WriteAllText($"${filepath}.new", text);
-    File.Replace($"${filepath}.new", filepath, null);
+    File.WriteAllText($"{filepath}.new", text);
+    File.Replace($"{filepath}.new", filepath, $"{filepath}.bak");
   }
 
 

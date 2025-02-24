@@ -1959,74 +1959,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48c763302acfba4bae9388fece6c2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &532695944
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 532695946}
-  - component: {fileID: 532695945}
-  m_Layer: 0
-  m_Name: ProgressionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &532695945
+--- !u!114 &532695945 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6070259256652142430, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+  m_PrefabInstance: {fileID: 2756176627052882596}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532695944}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 166a6c74b55de6b4db4aaf34d798f6f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseballScoreThresholdReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 927956172}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  BaseballHighScoreChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  ShootingScoreThresholdReached:
-    m_PersistentCalls:
-      m_Calls: []
-  ShootingHighScoreChanged:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!4 &532695946
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532695944}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9231694, y: -0.4779582, z: 17.661163}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &540781993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5802,6 +5745,95 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118555730}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &2756176627052882596
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6070259256652142430, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: BaseballScoreThresholdReached.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070259256652142430, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: BaseballScoreThresholdReached.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070259256652142430, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: BaseballScoreThresholdReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 927956172}
+    - target: {fileID: 6070259256652142430, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: BaseballScoreThresholdReached.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070259256652142430, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: BaseballScoreThresholdReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayDelayed
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070259256652142430, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: BaseballScoreThresholdReached.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070259256652142430, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: BaseballScoreThresholdReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070259256652142430, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: BaseballScoreThresholdReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354458063830590280, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.9231694
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354458063830590280, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4779582
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354458063830590280, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17.661163
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354458063830590280, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354458063830590280, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354458063830590280, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354458063830590280, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354458063830590280, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354458063830590280, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354458063830590280, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692749991954258144, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
+      propertyPath: m_Name
+      value: ProgressionManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
 --- !u!1001 &8990907716368549019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5971,5 +6003,5 @@ SceneRoots:
   - {fileID: 1156066114}
   - {fileID: 1013808558}
   - {fileID: 1956220493}
-  - {fileID: 532695946}
+  - {fileID: 2756176627052882596}
   - {fileID: 927956173}
