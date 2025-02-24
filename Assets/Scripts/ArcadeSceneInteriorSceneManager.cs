@@ -7,6 +7,7 @@ public class ArcadeSceneInteriorSceneManager : MonoBehaviour
     public GameObject progressionManager;
     public GameObject baseballTrophy;
     public GameObject shootingTrophy;
+    public GameObject escapeGameObject;
 
     // Start is called before the first frame update
     void Start()
@@ -28,5 +29,10 @@ public class ArcadeSceneInteriorSceneManager : MonoBehaviour
     public void OnShootingTrophy()
     {
         shootingTrophy.SetActive(true);
+    }
+
+    public void onBothTrophy()
+    {
+        escapeGameObject.SetActive(true);
     }
 }

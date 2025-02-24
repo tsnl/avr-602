@@ -10,11 +10,12 @@ using System.IO;
 
 public enum ArcadeScene
 {
-    Interior,
+    // Interior,
     InteriorV2,
     Exterior,
     Baseball,
     Shooting,
+    GameOver,
 }
 
 public class Scenes : MonoBehaviour
@@ -44,11 +45,12 @@ public class Scenes : MonoBehaviour
         SceneManager.LoadScene(
             scene switch
             {
-                ArcadeScene.Interior => "ArcadeSceneInterior",
+                // ArcadeScene.Interior => "ArcadeSceneInterior",
                 ArcadeScene.InteriorV2 => "ArcadeSceneInteriorV2",
                 ArcadeScene.Exterior => "ArcadeSceneExterior",
                 ArcadeScene.Baseball => "BaseballScene",
                 ArcadeScene.Shooting => "ShootingScene",
+                ArcadeScene.GameOver => "GameOver",
                 _ => throw new System.NotImplementedException(),
             }
         );

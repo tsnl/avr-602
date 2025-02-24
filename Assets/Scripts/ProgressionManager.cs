@@ -33,6 +33,7 @@ public class ProgressionManager : MonoBehaviour
   public UnityEvent BaseballHighScoreChanged;
   public UnityEvent ShootingScoreThresholdReached;
   public UnityEvent ShootingHighScoreChanged;
+  public UnityEvent BothThresholdReached;
 
   // Start is called before the first frame update
   void Start()
@@ -66,6 +67,7 @@ public class ProgressionManager : MonoBehaviour
   {
     PublishBaseballEvents();
     PublishShootingEvents();
+    PublishConjunctionEvents();
   }
 
   private void PublishBaseballEvents()
@@ -97,6 +99,14 @@ public class ProgressionManager : MonoBehaviour
       shootingHighScoreChangedSinceLoad = true;
       saveData.ShootingHighScore = saveData.LatestShootingScore;
       ShootingHighScoreChanged?.Invoke();
+    }
+  }
+
+  private void PublishConjunctionEvents()
+  {
+    if (saveData.BaseballScoreThresholdReached && saveData.ShootingScoreThresholdReached)
+    {
+      BothThresholdReached?.Invoke();
     }
   }
 
