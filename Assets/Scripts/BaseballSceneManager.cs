@@ -9,6 +9,7 @@ public class BaseballSceneManager : MonoBehaviour
     public GameObject batGameObject;
     public GameObject batGazeInteractibleGameObject;
     public GameObject batGazeInteractibleMeshGameObject;
+    public GameObject scoreThresholdReachedAudioSourceGameObject;
 
     // Start is called before the first frame update
     void Start()

@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class target : MonoBehaviour
+public class BaseballSceneTarget : MonoBehaviour
 {
-    [SerializeField] ScoreBoard scoreBoard;
+    [SerializeField]
+    ScoreBoard scoreBoard;
+
+    [SerializeField]
+    ProgressionManager progressionManager;
+
 
     private int score = 0;
     private AudioSource audioSource;
@@ -45,6 +50,9 @@ public class target : MonoBehaviour
             // Change target material color
             material.color = Color.cyan;
             Invoke(nameof(ResetMaterial), 1f);
+
+            // Register score on progression manager:
+            progressionManager.RegisterBaseballScore(score);
         }
     }
 
