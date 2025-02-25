@@ -15,7 +15,9 @@ public class Pitcher : MonoBehaviour
         {
             var ball = Instantiate(template, position, rotation);
             Destroy(ball, 5.0f);
-            ball.GetComponent<Rigidbody>().AddForce((forward + up * pitch).normalized * force, ForceMode.Force);
+            var rb = ball.GetComponent<Rigidbody>();
+            rb.AddForce((forward + up * pitch).normalized * force, ForceMode.Impulse);
+            rb.angularVelocity = new Vector3(100.0f, 0.0f, 0.0f);
             return ball;
         }
     }
@@ -40,7 +42,7 @@ public class Pitcher : MonoBehaviour
         shotEnabled = false;
 
         // Play on Awake is enabled for animation to start, but pause soon after.
-        Invoke(nameof(PauseAnimation), 0.1f);  
+        Invoke(nameof(PauseAnimation), 0.1f);
     }
 
     // Update is called once per frame

@@ -27,11 +27,10 @@ public class BaseballSceneManager : MonoBehaviour
         Debug.Log("Bat grabbed");
         batState = BatState.Grabbed;
 
-        // Unconditionally disable the bat mesh renderer when bat is grabbed.
-        batGazeInteractibleMeshGameObject.GetComponent<MeshRenderer>().enabled = false;
-
         // Ensure not enabled to hide the annoying reticle.
         batGazeInteractibleGameObject.GetComponent<TS.GazeInteraction.GazeInteractable>().Enable(false);
+
+
     }
 
     public void OnBatReleased()
@@ -48,14 +47,13 @@ public class BaseballSceneManager : MonoBehaviour
         if (batState == BatState.Spawn)
         {
             Debug.Log("Bat gaze enter");
-            batGazeInteractibleMeshGameObject.GetComponent<MeshRenderer>().enabled = true;
         }
     }
 
     public void OnBatGazeLeave()
     {
         // Unconditionally disable the bat mesh renderer when gaze leaves or when bat is grabbed.
-        batGazeInteractibleMeshGameObject.GetComponent<MeshRenderer>().enabled = false;
+        // batGazeInteractibleMeshGameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 }
 

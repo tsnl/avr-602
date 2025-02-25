@@ -31,7 +31,7 @@ public class ArcadeSceneInteriorSceneManager : MonoBehaviour
         shootingTrophy.SetActive(true);
     }
 
-    public void onBothTrophy()
+    public void OnBothTrophy()
     {
         escapeGameObject.SetActive(true);
     }
