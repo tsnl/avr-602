@@ -275,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreBoard: {fileID: 1013808559}
   progressionManager: {fileID: 532695945}
+  pitcher: {fileID: 602952880}
 --- !u!82 &25748402
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5920,6 +5921,10 @@ PrefabInstance:
       propertyPath: playableDirector
       value: 
       objectReference: {fileID: 1075578797}
+    - target: {fileID: 2952324934531401170, guid: 66c8e9a6e6bdf454f8701caa97145dc3, type: 3}
+      propertyPath: difficultyMultiplierPerShot
+      value: 1.03
+      objectReference: {fileID: 0}
     - target: {fileID: 3309771028249373843, guid: 66c8e9a6e6bdf454f8701caa97145dc3, type: 3}
       propertyPath: m_Enabled
       value: 0

@@ -11,6 +11,8 @@ public class BaseballSceneTarget : MonoBehaviour
     [SerializeField]
     ProgressionManager progressionManager;
 
+    public GameObject pitcher;
+
 
     private int score = 0;
     private AudioSource audioSource;
@@ -53,6 +55,9 @@ public class BaseballSceneTarget : MonoBehaviour
 
             // Register score on progression manager:
             progressionManager.RegisterBaseballScore(score);
+
+            // Update pitcher difficulty:
+            pitcher.GetComponent<Pitcher>().NotifyScoreChanged(score);
         }
     }
 

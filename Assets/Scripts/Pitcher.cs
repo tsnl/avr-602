@@ -11,12 +11,12 @@ public class Pitcher : MonoBehaviour
     {
         public float delay = 1.0f;
 
-        public GameObject SpawnBall(GameObject template, Vector3 position, Quaternion rotation, Vector3 forward, Vector3 up, float force, float pitch)
+        public GameObject SpawnBall(GameObject template, Vector3 position, Quaternion rotation, Vector3 forward, Vector3 up, float force, float pitch, float speedMultiplier)
         {
             var ball = Instantiate(template, position, rotation);
             Destroy(ball, 5.0f);
             var rb = ball.GetComponent<Rigidbody>();
-            rb.AddForce((forward + up * pitch).normalized * force, ForceMode.Impulse);
+            rb.AddForce((forward + up * pitch).normalized * force * speedMultiplier, ForceMode.Impulse);
             rb.angularVelocity = new Vector3(100.0f, 0.0f, 0.0f);
             return ball;
         }
@@ -30,11 +30,14 @@ public class Pitcher : MonoBehaviour
     public float shotForce;
     public float shotPitch;
     [SerializeField] private PlayableDirector playableDirector;
+    public float difficultyMultiplierPerShot = 1.01F;
+
 
     public bool ShotEnabled { get => shotEnabled; set => shotEnabled = value; }
 
     private Shot currentShot = null;
     private GameObject lastBall = null;
+    private float difficultyMultiplier = 1.0F;
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +74,12 @@ public class Pitcher : MonoBehaviour
         }*/
     }
 
+    public void NotifyScoreChanged(int score)
+    {
+        Debug.Log("Pitcher: NotifyScoreChanged: " + score);
+        difficultyMultiplier = Mathf.Pow(difficultyMultiplierPerShot, score);
+    }
+
     /// <summary>
     /// This function is called by signal receiver of Pitcher when the throw animation emits a signal in Timeline.
     /// </summary>
@@ -79,7 +88,7 @@ public class Pitcher : MonoBehaviour
         if (shotEnabled)
         {
             Shot newShot = new();
-            newShot.SpawnBall(ballTemplate, ballSpawnAnchor.transform.position, ballSpawnAnchor.transform.rotation, ballSpawnAnchor.transform.forward, ballSpawnAnchor.transform.up, shotForce, shotPitch);
+            newShot.SpawnBall(ballTemplate, ballSpawnAnchor.transform.position, ballSpawnAnchor.transform.rotation, ballSpawnAnchor.transform.forward, ballSpawnAnchor.transform.up, shotForce, shotPitch, difficultyMultiplier);
         }
     }
 
