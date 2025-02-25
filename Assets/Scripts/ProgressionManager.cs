@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class DifficultyData
 {
-  public int BaseballScoreThreshold { get; set; } = 3;
+  public int BaseballScoreThreshold { get; set; } = 10;
   public int ShootingScoreThreshold { get; set; } = 10;
 }
 
@@ -27,6 +27,9 @@ public class ProgressionManager : MonoBehaviour
   private SaveData saveData;
   private bool baseballHighScoreChangedSinceLoad = false;
   private bool shootingHighScoreChangedSinceLoad = false;
+  private bool baseballTrophyChangedSinceLoad = false;
+  private bool shootingTrophyChangedSinceLoad = false;
+
 
 
   public UnityEvent BaseballScoreThresholdReached;
@@ -72,8 +75,9 @@ public class ProgressionManager : MonoBehaviour
 
   private void PublishBaseballEvents()
   {
-    if (saveData.LatestBaseballScore >= difficulty.BaseballScoreThreshold)
+    if (saveData.LatestBaseballScore >= difficulty.BaseballScoreThreshold && !baseballTrophyChangedSinceLoad)
     {
+      baseballTrophyChangedSinceLoad = true;
       BaseballScoreThresholdReached?.Invoke();
       saveData.BaseballScoreThresholdReached = true;
     }
@@ -88,8 +92,9 @@ public class ProgressionManager : MonoBehaviour
 
   private void PublishShootingEvents()
   {
-    if (saveData.LatestShootingScore >= difficulty.ShootingScoreThreshold)
+    if (saveData.LatestShootingScore >= difficulty.ShootingScoreThreshold && !shootingTrophyChangedSinceLoad)
     {
+      shootingTrophyChangedSinceLoad = true;
       ShootingScoreThresholdReached?.Invoke();
       saveData.ShootingScoreThresholdReached = true;
     }
