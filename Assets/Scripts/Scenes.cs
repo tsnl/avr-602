@@ -10,6 +10,7 @@ using System.IO;
 
 public enum ArcadeScene
 {
+    Router,
     // Interior,
     InteriorV2,
     Exterior,
@@ -52,6 +53,7 @@ public class Scenes : MonoBehaviour
         SceneManager.LoadScene(
             scene switch
             {
+                ArcadeScene.Router => "RouterScene",
                 // ArcadeScene.Interior => "ArcadeSceneInterior",
                 ArcadeScene.InteriorV2 => "ArcadeSceneInteriorV2",
                 ArcadeScene.Exterior => "ArcadeSceneExterior",
