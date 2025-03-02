@@ -5,16 +5,23 @@ using UnityEngine;
 public class BaseballSceneManager : MonoBehaviour
 {
     private BatState batState;
+    private Material batNormalMaterial;
 
     public GameObject batGameObject;
+    public GameObject batMeshGameObject;
+    public Material batHighlightMaterial;
     public GameObject batGazeInteractibleGameObject;
-    public GameObject batGazeInteractibleMeshGameObject;
     public GameObject scoreThresholdReachedAudioSourceGameObject;
 
     // Start is called before the first frame update
     void Start()
     {
-        batState = BatState.Spawn;
+        batState = BatState.Spawned;
+
+        if (batNormalMaterial != null && batMeshGameObject != null)
+        {
+            batNormalMaterial = batMeshGameObject.GetComponent<MeshRenderer>().material;
+        }
     }
 
     // Update is called once per frame
@@ -29,14 +36,12 @@ public class BaseballSceneManager : MonoBehaviour
 
         // Ensure not enabled to hide the annoying reticle.
         batGazeInteractibleGameObject.GetComponent<TS.GazeInteraction.GazeInteractable>().Enable(false);
-
-
     }
 
     public void OnBatReleased()
     {
         Debug.Log("Bat released");
-        batState = BatState.Spawn;
+        batState = BatState.Spawned;
 
         // Ensure not enabled to hide the annoying reticle.
         batGazeInteractibleGameObject.GetComponent<TS.GazeInteraction.GazeInteractable>().Enable(true);
@@ -44,21 +49,22 @@ public class BaseballSceneManager : MonoBehaviour
 
     public void OnBatGazeEnter()
     {
-        if (batState == BatState.Spawn)
+        if (batState == BatState.Spawned)
         {
             Debug.Log("Bat gaze enter");
+            batGameObject.GetComponent<MeshRenderer>().material = batHighlightMaterial;
         }
     }
 
     public void OnBatGazeLeave()
     {
-        // Unconditionally disable the bat mesh renderer when gaze leaves or when bat is grabbed.
-        // batGazeInteractibleMeshGameObject.GetComponent<MeshRenderer>().enabled = false;
+        // Unconditionally disable the bat highlight when the bat is not gazed.
+        batGameObject.GetComponent<MeshRenderer>().material = batNormalMaterial;
     }
 }
 
 enum BatState
 {
-    Spawn,
+    Spawned,
     Grabbed,
 }
