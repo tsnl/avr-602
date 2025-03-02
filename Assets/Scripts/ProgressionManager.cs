@@ -47,14 +47,12 @@ public class ProgressionManager : MonoBehaviour
 
     if (CreateSaveDataIfMissing)
     {
-      // Immediately save again in case we loaded the default object
+      // Clobber default state with the current scene name.
       UpdateCurrentScene();
-      Save();
     }
-    else
-    {
-      // Ignored, primarily for initial router to decide what to do.
-    }
+
+    // Immediately save again in case we loaded the default object
+    Save();
 
     PublishEvents();
   }
