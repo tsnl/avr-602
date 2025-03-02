@@ -36,8 +36,15 @@ public class Scenes : MonoBehaviour
     public void ChangeScene(string name)
     {
         ArcadeScene scene;
-        Enum.TryParse(name, out scene);
-        ChangeScene(scene);
+        if (Enum.TryParse(name, out scene))
+        {
+            ChangeScene(scene);
+        }
+        else
+        {
+            // Try the original scene name
+            SceneManager.LoadScene(name);
+        }
     }
 
     public void ChangeScene(ArcadeScene scene)

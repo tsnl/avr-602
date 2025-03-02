@@ -31,20 +31,30 @@ public class ProgressionManager : MonoBehaviour
   private bool baseballTrophyChangedSinceLoad = false;
   private bool shootingTrophyChangedSinceLoad = false;
 
+  public bool CreateSaveDataIfMissing = true;
   public UnityEvent BaseballScoreThresholdReached;
   public UnityEvent BaseballHighScoreChanged;
   public UnityEvent ShootingScoreThresholdReached;
   public UnityEvent ShootingHighScoreChanged;
   public UnityEvent BothThresholdReached;
 
+  public SaveData LatestSaveData => saveData;
+
   // Start is called before the first frame update
   void Start()
   {
     Load();
 
-    // Immediately save again in case we loaded the default object
-    UpdateCurrentScene();
-    Save();
+    if (CreateSaveDataIfMissing)
+    {
+      // Immediately save again in case we loaded the default object
+      UpdateCurrentScene();
+      Save();
+    }
+    else
+    {
+      // Ignored, primarily for initial router to decide what to do.
+    }
 
     PublishEvents();
   }
