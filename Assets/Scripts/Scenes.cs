@@ -60,4 +60,10 @@ public class Scenes : MonoBehaviour
     {
         Debug.Log(s);
     }
+
+    public void ExitGame()
+    {
+        Debug.Log("ExitGame called-- Application.Quit is ignored in the editor!");
+        Application.Quit();
+    }
 }

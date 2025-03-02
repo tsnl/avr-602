@@ -12,6 +12,7 @@ public class DifficultyData
 
 public class SaveData
 {
+  public string CurrentScene { get; set; }
   public int LatestBaseballScore { get; set; }
   public int LatestShootingScore { get; set; }
   public int BaseballHighScore { get; set; }
@@ -30,8 +31,6 @@ public class ProgressionManager : MonoBehaviour
   private bool baseballTrophyChangedSinceLoad = false;
   private bool shootingTrophyChangedSinceLoad = false;
 
-
-
   public UnityEvent BaseballScoreThresholdReached;
   public UnityEvent BaseballHighScoreChanged;
   public UnityEvent ShootingScoreThresholdReached;
@@ -42,7 +41,11 @@ public class ProgressionManager : MonoBehaviour
   void Start()
   {
     Load();
+
+    // Immediately save again in case we loaded the default object
+    UpdateCurrentScene();
     Save();
+
     PublishEvents();
   }
 
@@ -63,6 +66,12 @@ public class ProgressionManager : MonoBehaviour
   public void Reset()
   {
     saveData = new SaveData();
+    Save();
+  }
+
+  public void SaveGame()
+  {
+    UpdateCurrentScene();
     Save();
   }
 
@@ -115,6 +124,11 @@ public class ProgressionManager : MonoBehaviour
     }
   }
 
+  private void UpdateCurrentScene()
+  {
+    saveData.CurrentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+  }
+
   private void Save()
   {
     var filepath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/avr602/ArcadeSaveData.json";
@@ -138,5 +152,4 @@ public class ProgressionManager : MonoBehaviour
       this.saveData = JsonConvert.DeserializeObject<SaveData>(text);
     }
   }
-
 }
