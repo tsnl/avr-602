@@ -850,7 +850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6070259256652142430, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
       propertyPath: BothThresholdReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnBaseballTrophy
+      value: OnBothTrophy
       objectReference: {fileID: 0}
     - target: {fileID: 6070259256652142430, guid: e5709357b89e994489c12bcdcd1ab31c, type: 3}
       propertyPath: BaseballScoreThresholdReached.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
