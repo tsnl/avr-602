@@ -143,21 +143,35 @@ public class ProgressionManager : MonoBehaviour
     Directory.CreateDirectory(Path.GetDirectoryName(filepath));
     var text = JsonConvert.SerializeObject(this.saveData);
     File.WriteAllText($"{filepath}.new", text);
-    File.Replace($"{filepath}.new", filepath, $"{filepath}.bak");
+    if (File.Exists(filepath))
+    {
+      File.Replace($"{filepath}.new", filepath, $"{filepath}.bak");
+    }
+    else
+    {
+      File.Move($"{filepath}.new", filepath);
+    }
   }
 
 
   private void Load()
   {
     var filepath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/avr602/ArcadeSaveData.json";
-    if (!File.Exists(filepath))
-    {
-      saveData = new SaveData();
-    }
-    else
+    try
     {
       var text = File.ReadAllText(filepath);
-      this.saveData = JsonConvert.DeserializeObject<SaveData>(text);
+      saveData = JsonConvert.DeserializeObject<SaveData>(text);
+    }
+    catch (Exception e)
+    {
+      if (e is FileNotFoundException || e is DirectoryNotFoundException)
+      {
+        saveData = new SaveData();
+      }
+      else
+      {
+        throw;
+      }
     }
   }
 }
