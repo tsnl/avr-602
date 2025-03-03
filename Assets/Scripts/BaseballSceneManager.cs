@@ -36,6 +36,7 @@ public class BaseballSceneManager : MonoBehaviour
 
         // Ensure not enabled to hide the annoying reticle.
         batGazeInteractibleGameObject.GetComponent<TS.GazeInteraction.GazeInteractable>().Enable(false);
+        batMeshGameObject.GetComponent<MeshRenderer>().material = batNormalMaterial;
     }
 
     public void OnBatReleased()
@@ -45,19 +46,29 @@ public class BaseballSceneManager : MonoBehaviour
 
         // Ensure not enabled to hide the annoying reticle.
         batGazeInteractibleGameObject.GetComponent<TS.GazeInteraction.GazeInteractable>().Enable(true);
+
+        // NOTE: There is a small edge-case: when you release, if you're already gazing, material will not highlight 
+        // until gaze leaves and re-enters.
+        batMeshGameObject.GetComponent<MeshRenderer>().material = batNormalMaterial;
     }
 
     public void OnBatGazeEnter()
     {
+        Debug.Log("OnBatGazeEnter");
         if (batState == BatState.Spawned)
         {
-            Debug.Log("Bat gaze enter");
-            batGameObject.GetComponent<MeshRenderer>().material = batHighlightMaterial;
+            Debug.Log("Bat State is Spawned, updating highlight material");
+            batMeshGameObject.GetComponent<MeshRenderer>().material = batHighlightMaterial;
+        }
+        else
+        {
+            Debug.Log("Bat State not Spawned, no material change");
         }
     }
 
     public void OnBatGazeLeave()
     {
+        Debug.Log("OnBatGazeLeave");
         // Unconditionally disable the bat highlight when the bat is not gazed.
         batGameObject.GetComponent<MeshRenderer>().material = batNormalMaterial;
     }
