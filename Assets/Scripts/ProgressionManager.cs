@@ -4,10 +4,28 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum DifficultyLevel
+{
+  Default,
+  Demo,
+}
+
 public class DifficultyData
 {
-  public int BaseballScoreThreshold { get; set; } = 10;
-  public int ShootingScoreThreshold { get; set; } = 10;
+  // public DifficultyLevel Level { get; set; } = DifficultyLevel.Default;
+  public DifficultyLevel Level { get; set; } = DifficultyLevel.Demo;
+  public int BaseballScoreThreshold => Level switch
+  {
+    DifficultyLevel.Default => 10,
+    DifficultyLevel.Demo => 3,
+    _ => 10,
+  };
+  public int ShootingScoreThreshold => Level switch
+  {
+    DifficultyLevel.Default => 30,
+    DifficultyLevel.Demo => 10,
+    _ => 10
+  };
 }
 
 public class SaveData
