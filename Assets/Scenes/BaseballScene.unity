@@ -5871,6 +5871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   batGameObject: {fileID: 505221259}
   batMeshGameObject: {fileID: 1799921878}
+  batNormalMaterial: {fileID: 2100000, guid: 3d7d44caab35ab64d824e043b594e5b7, type: 2}
   batHighlightMaterial: {fileID: 2100000, guid: 343a19eff7a9d4c45a9e028ab1b6c914, type: 2}
   batGazeInteractibleGameObject: {fileID: 48020190}
   scoreThresholdReachedAudioSourceGameObject: {fileID: 927956171}

@@ -5,10 +5,10 @@ using UnityEngine;
 public class BaseballSceneManager : MonoBehaviour
 {
     private BatState batState;
-    private Material batNormalMaterial;
 
     public GameObject batGameObject;
     public GameObject batMeshGameObject;
+    public Material batNormalMaterial;
     public Material batHighlightMaterial;
     public GameObject batGazeInteractibleGameObject;
     public GameObject scoreThresholdReachedAudioSourceGameObject;
@@ -17,11 +17,6 @@ public class BaseballSceneManager : MonoBehaviour
     void Start()
     {
         batState = BatState.Spawned;
-
-        if (batNormalMaterial != null && batMeshGameObject != null)
-        {
-            batNormalMaterial = batMeshGameObject.GetComponent<MeshRenderer>().material;
-        }
     }
 
     // Update is called once per frame
