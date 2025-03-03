@@ -15,7 +15,7 @@ public class PaintGun : MonoBehaviour
     [SerializeField] private List<AudioClip> audioClips = new();
     [SerializeField] private ScoreBoard scoreBoard;
 
-    private static int score = 0;
+    private int score = 0;
     private bool altShoot;
 
     // Start is called before the first frame update
